@@ -1,52 +1,47 @@
 #ifndef		__RSS_H__
 # define	__RSS_H__
 
-#include <Qstring>
+#include <string>
 #include "item.h"
 
 class	rss
 {
  public:
-  rss(Qstring);
+  rss();
   ~rss();
   
-  void		setVersion(Qstring);
-  void		setTitle(Qstring);
-  void		setDescription(Qstring);
-  void		setLink(Qstring);
-  void		setPubDate(Qstring);
-  void		setLastBuildDate(Qstring);
-  void		setImage(Qstring);
-  void		setLanguage(Qstring);
+  void		setTitle(std::string);
+  void		setDescription(std::string);
+  void		setLink(std::string);
+  void		setPubDate(std::string);
+  void		setLastBuildDate(std::string);
+  void		setImage(std::string);
+  void		setLanguage(std::string);
 
-  Qstring	getVersion() const;
-  Qstring	getTitle() const;
-  Qstring	getDescription() const;
-  Qstring	getLink() const;
-  Qstring	getPubDate() const;
-  Qstring	getLastBuiltDate() const;
-  Qstring	getImage() const;
-  Qstring	getLanguage() const;
+  std::string	getTitle() const;
+  std::string	getDescription() const;
+  std::string	getLink() const;
+  std::string	getPubDate() const;
+  std::string	getLastBuildDate() const;
+  std::string	getImage() const;
+  std::string	getLanguage() const;
 
   bool		verifValid() const;
   item		*_items[10];
+  int		_nbItem;
  private:
   // obligatoire
-  Qstring	_version;
-  Qstring	_title;
-  Qstring	_link;
-  Qstring	_description;
-  bool		_metaVersion;
+  std::string	_title;
+  std::string	_link;
+  std::string	_description;
   bool		_metaTitle;
   bool		_metaLink;
   bool		_metaDesc;
   // optionnel
-  Qstring	_pubDate;
-  Qstring	_lastBuiltDate;
-  Qstring	_image;
-  Qstring	_language;
-
-  int		_nbItem;
+  std::string	_pubDate;
+  std::string	_lastBuildDate;
+  std::string	_image;
+  std::string	_language;
 };
 
 #endif

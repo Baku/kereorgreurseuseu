@@ -14,72 +14,72 @@ item::~item()
 {
 }
 
-void	item::setTitle(Qstring title)
+void	item::setTitle(std::string title)
 {
   this->_title = title;
 }
 
-void	item::setDescription(Qstring desc)
+void	item::setDescription(std::string desc)
 {
   this->_description = desc;
 }
 
-void	item::setLink(Qstring link)
+void	item::setLink(std::string link)
 {
   this->_link = link;
 }
 
-void	item::setPubDate(Qstring date)
+void	item::setPubDate(std::string date)
 {
   this->_pubDate = date;
 }
 
-void	item::setAuthor(Qstring author)
+void	item::setAuthor(std::string author)
 {
   this->_author = author;
 }
 
-void	item::setCategory(Qstring category)
+void	item::setCategory(std::string category)
 {
   this->_category = category;
 }
 
-void	item::setComments(Qstring com)
+void	item::setComments(std::string com)
 {
   this->_comments = com;
 }
 
-Qstring	item::getTitle() const
+std::string	item::getTitle() const
 {
   return this->_title;
 }
 
-Qstring	item::getDescription() const
+std::string	item::getDescription() const
 {
   return this->_description;
 }
 
-Qstring	item::getLink() const
+std::string	item::getLink() const
 {
   return this->_link;
 }
 
-Qstring	item::getPubDate() const
+std::string	item::getPubDate() const
 {
   return this->_pubDate;
 }
 
-Qstring	item::getAuthor() const
+std::string	item::getAuthor() const
 {
   return this->_author;
 }
 
-Qstring	item::getCategory() const
+std::string	item::getCategory() const
 {
   return this->_category;
 }
 
-Qstring	item::getComments() const
+std::string	item::getComments() const
 {
   return this->_comments;
 }

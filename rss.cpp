@@ -1,8 +1,7 @@
 #include "rss.h"
 
-rss::rss(Qstring version): _version(version)
+rss::rss()
 {
-  this->_metaVersion = true;
   this->_metaTitle = false;
   this->_metaDesc = false;
   this->_metaLink = false;
@@ -13,93 +12,82 @@ rss::~rss()
 {
 }
 
-void	rss::setVersion(Qstring version)
-{
-  this->_version = version;
-  this->_metaVersion = true;
-}
-
-void	rss::setTitle(Qstring title)
+void	rss::setTitle(std::string title)
 {
   this->_title = title;
   this->_metaTitle = true;
 }
 
-void	rss::setDescription(Qstring desc)
+void	rss::setDescription(std::string desc)
 {
   this->_description = desc;
   this->_metaDesc = true;
 }
 
-void	rss::setLink(Qstring link)
+void	rss::setLink(std::string link)
 {
   this->_link = link;
   this->_metaLink = true;
 }
 
-void	rss::setPubDate(Qstring date)
+void	rss::setPubDate(std::string date)
 {
   this->_pubDate = date;
 }
 
-void	rss::setLastBuiltDate(Qstring date)
+void	rss::setLastBuildDate(std::string date)
 {
-  this->_LastBuiltDate = date;
+  this->_lastBuildDate = date;
 }
 
-void	rss::setImage(Qstring img)
+void	rss::setImage(std::string img)
 {
   this->_image = img;
 }
 
-void	rss::setLanguage(Qstring lg)
+void	rss::setLanguage(std::string lg)
 {
   this->_language = lg;
 }
 
-void	rss::getVersion() const
-{
-  return this->_version;
-}
-
-Qstring	rss::getTitle() const
+std::string	rss::getTitle() const
 {
   return this->_title;
 }
 
-Qstring	rss::getDescription() const
+std::string	rss::getDescription() const
 {
   return this->_description;
 }
 
-Qstring	rss::getLink() const
+std::string	rss::getLink() const
 {
   return this->_link;
 }
 
-Qstring	rss::getPubDate() const
+std::string	rss::getPubDate() const
 {
   return this->_pubDate;
 }
 
-Qstring	rss::getLastBuiltDate() const
+std::string	rss::getLastBuildDate() const
 {
-  return this->_lastBuiltDate;
+  return this->_lastBuildDate;
 }
 
-Qstring	rss::getImage() const
+std::string	rss::getImage() const
 {
   return this->_image;
 }
 
-Qstring	rss::getLanguage() const
+std::string	rss::getLanguage() const
 {
   return this->_language;
 }
 
 bool	rss::verifValid() const
 {
-  if (this->_metaTitle == true && this->_metaDesc == true && this->_metaLink == true && this->_metaVersion == true)
+  if (this->_metaTitle == true && this->_metaDesc == true && this->_metaLink == true)
     return true;
   return false;
 }

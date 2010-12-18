@@ -1,7 +1,7 @@
 #ifndef		__ITEM_H__
 # define	__ITEM_H__
 
-#include <Qstring>
+#include <string>
 
 class	item
 {
@@ -9,32 +9,32 @@ class	item
   item();
   virtual ~item();
   
-  void		setTitle(Qstring);
-  void		setDescription(Qstring);
-  void		setLink(Qstring);
-  void		setPubDate(Qstring);
-  void		setAuthor(Qstring);
-  void		setCategory(Qstring);
-  void		setComments(Qstring);
+  void		setTitle(std::string);
+  void		setDescription(std::string);
+  void		setLink(std::string);
+  void		setPubDate(std::string);
+  void		setAuthor(std::string);
+  void		setCategory(std::string);
+  void		setComments(std::string);
 
-  Qstring	getTitle() const;
-  Qstring	getDescription() const;
-  Qstring	getLink() const;
-  Qstring	getPubDate() const;
-  Qstring	getAuthor() const;
-  Qstring	getCategory() const;
-  Qstring	getComments() const;
+  std::string	getTitle() const;
+  std::string	getDescription() const;
+  std::string	getLink() const;
+  std::string	getPubDate() const;
+  std::string	getAuthor() const;
+  std::string	getCategory() const;
+  std::string	getComments() const;
 
  private:
   // obligatoire
-  Qstring	_title;
-  Qstring	_description;
+  std::string	_title;
+  std::string	_description;
   // optionnel
-  Qstring	_link;
-  Qstring	_pubDate;
-  Qstring	_author;
-  Qstring	_category;
-  Qstring	_comments;
+  std::string	_link;
+  std::string	_pubDate;
+  std::string	_author;
+  std::string	_category;
+  std::string	_comments;
 };
 
 #endif

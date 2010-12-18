@@ -1,23 +1,25 @@
 #ifndef		__RSSPARSE_H__
 # define	__RSSPARSE_H__
 
-#include <QtXml>
-#include <Qstring>
+#include <vector>
+#include <string>
 #include "rss.h"
 
 
-class	rssParse : public QXmlDefaultHandler
+class	rssParse
 {
  public:
-  rssParse(Qstring);
-  virtual ~rssParse(){}
+  rssParse(std::string);
+  virtual ~rssParse();
   void	parse();
-  bool startElement(const QString &namespaceURI, const QString &localName, const QString &qName, const QXmlAttributes &attributes);
-  bool endElement(const QString &namespaceURI, const QString &localName, const QString &qName);
- private:
-  Qstring	_filename;
-  Qstring	_tmpString;
+  std::vector<std::string>	splitString(std::string src, std::string sep);
+
   rss		*_rss;
+ private:
+  rssParse();
+  std::string	_filename;
+  std::string	_tmpString;
+  bool		_isItem;
 };
 
 #endif
