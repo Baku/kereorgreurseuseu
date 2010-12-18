@@ -32,6 +32,7 @@ std::vector<std::string>	rssParse::splitString(std::string src, std::string sep)
 void	rssParse::parse()
 {
   std::ifstream      ifs;
+  item		     *tmpItem;
 
   ifs.open(_filename.c_str());
   if (!ifs.fail())
@@ -65,36 +66,34 @@ void	rssParse::parse()
 		      this->_rss->setLanguage(split[i+1]);
 		    else if (split[i] == "item")
 		      {
-			if (this->_rss->_nbItem > 10)
-			  {
-			    delete this->_rss->_items[0];
-			    this->_rss->_nbItem = 0;
-			  }
-			this->_rss->_items[this->_rss->_nbItem++] = new item();
+			tmpItem = new item();
 			this->_isItem = true;
 		      }
-		  }	
-	      }
-	    else
-	      {
-		if (split[i] == "\\item")
-		  _isItem = false;
-		else if (split[i] == "title")
-		  this->_rss->_items[this->_rss->_nbItem - 1]->setTitle(split[i+1]);
-		else if (split[i] == "description")
-		  this->_rss->_items[this->_rss->_nbItem - 1]->setDescription(split[i+1]);
-		else if (split[i] == "link")
-		  this->_rss->_items[this->_rss->_nbItem - 1]->setLink(split[i+1]);
-		else if (split[i] == "pubDate")
-		  this->_rss->_items[this->_rss->_nbItem - 1]->setPubDate(split[i+1]);
-		else if (split[i] == "author")
-		  this->_rss->_items[this->_rss->_nbItem - 1]->setAuthor(split[i+1]);
-		else if (split[i] == "category")
-		  this->_rss->_items[this->_rss->_nbItem - 1]->setCategory(split[i+1]);
-		else if (split[i] == "comments")
-		  this->_rss->_items[this->_rss->_nbItem - 1]->setComments(split[i+1]);
+		  }
+		else
+		  {
+		    if (split[i] == "title")
+		      tmpItem->setTitle(split[i+1]);
+		    else if (split[i] == "description")
+		      tmpItem->setDescription(split[i+1]);
+		    else if (split[i] == "link")
+		      tmpItem->setLink(split[i+1]);
+		    else if (split[i] == "pubDate")
+		      tmpItem->setPubDate(split[i+1]);
+		    else if (split[i] == "author")
+		      tmpItem->setAuthor(split[i+1]);
+		    else if (split[i] == "category")
+		      tmpItem->setCategory(split[i+1]);
+		    else if (split[i] == "comments")
+		      tmpItem->setComments(split[i+1]);
+		    if (split[i] == "/item")
+		      {
+			this->_rss->_items.push_back(tmpItem);
+			_isItem = false;
+		      }
+		  }
 	      }
 	}
+      ifs.close();
     }
-  ifs.close();
 }

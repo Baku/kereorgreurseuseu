@@ -11,5 +11,11 @@
             <pubDate>Sat, 07 Sep 2002 00:00:01 GMT</pubDate>
             <link>http://www.example.org/actu1</link>
         </item>
+        <item>
+            <title>Actualité N°2</title>
+            <description>Ceci est ma deuxieme actualité sachant que baku a recu une bite dans le cul</description>
+            <pubDate>Sat, 07 Sep 2003 19:00:01 GMT</pubDate>
+            <link>http://www.example.org/actu2</link>
+        </item>
     </channel>
 </rss>

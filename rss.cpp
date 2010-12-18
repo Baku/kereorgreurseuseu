@@ -5,7 +5,6 @@ rss::rss()
   this->_metaTitle = false;
   this->_metaDesc = false;
   this->_metaLink = false;
-  this->_nbItem = 0;
 }
 
 rss::~rss()

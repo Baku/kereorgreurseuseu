@@ -1,6 +1,7 @@
 #ifndef		__RSS_H__
 # define	__RSS_H__
 
+#include <vector>
 #include <string>
 #include "item.h"
 
@@ -27,8 +28,7 @@ class	rss
   std::string	getLanguage() const;
 
   bool		verifValid() const;
-  item		*_items[10];
-  int		_nbItem;
+  std::vector<item*>	_items;
  private:
   // obligatoire
   std::string	_title;

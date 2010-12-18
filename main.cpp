@@ -11,8 +11,11 @@ int	main(int ac, char **av)
   std::cout << "lastBuiltDate :"<< test->_rss->getLastBuildDate() << std::endl;
   std::cout << "link :"<< test->_rss->getLink() << std::endl;
   std::cout << "item :"<< std::endl;
-  std::cout << "title :" << test->_rss->_items[0]->getTitle() << std::endl;
-  std::cout << "desc :" << test->_rss->_items[0]->getDescription() << std::endl;
-  std::cout << "pubdate :" << test->_rss->_items[0]->getPubDate() << std::endl;
-  std::cout << "link :" << test->_rss->_items[0]->getLink() << std::endl;
+  for (int i = 0; i < test->_rss->_items.size(); i++)
+    {
+      std::cout << test->_rss->_items[i]->getTitle() << std::endl;
+      std::cout << test->_rss->_items[i]->getDescription() << std::endl;
+      std::cout << test->_rss->_items[i]->getPubDate() << std::endl;
+      std::cout << test->_rss->_items[i]->getLink() << std::endl;
+    }
 }
